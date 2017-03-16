@@ -14,17 +14,17 @@
   (when (not (package-installed-p package-name))
     (package-install package-name)))
 
-;; Theme settings
-(load-theme 'tango-dark)
-
 ;; Package initialization and automatic setup
 (package-initialize)
 
 (add-repo "melpa-stable" "https://stable.melpa.org/packages/")
 
-(let ((packages '(magit)))
+(let ((packages '(magit badwolf-theme)))
   (package-refresh-if-required packages)
   (mapc 'package-ensure-installed packages))
+
+;; Theme settings
+(load-theme 'badwolf t)
 
 ;; GUI settings
 (scroll-bar-mode -1) ; disable scroll bars
