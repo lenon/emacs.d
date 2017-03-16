@@ -40,7 +40,7 @@
 (global-auto-revert-mode 1) ; auto revert files if they change on disk
 
 ;; Indentation settings
-(setq indent-tabs-mode 0) ; indent with spaces, no tabs
+(setq-default indent-tabs-mode nil) ; indent with spaces, no tabs
 
 (require 'whitespace)
 (setq whitespace-style '(face
