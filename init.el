@@ -40,6 +40,10 @@
 (electric-pair-mode 1) ; auto insert matching delimiters
 (global-auto-revert-mode 1) ; auto revert files if they change on disk
 
+;; Encoding settings
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8) ; use utf-8 for new buffers, copy/paste, etc
+
 ;; Indentation settings
 (setq-default indent-tabs-mode nil) ; indent with spaces, no tabs
 
