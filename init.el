@@ -37,6 +37,7 @@
 (show-paren-mode 1) ; show parentheses
 (setq-default truncate-lines 1) ; truncate lines (no-wrap)
 (electric-pair-mode 1) ; auto insert matching delimiters
+(global-auto-revert-mode 1) ; auto revert files if they change on disk
 
 ;; Indentation settings
 (setq indent-tabs-mode 0) ; indent with spaces, no tabs
