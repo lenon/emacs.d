@@ -1,27 +1,21 @@
-(require 'package)
+;; Load-path setup
+(defconst settings-dir
+  (expand-file-name "settings" user-emacs-directory))
 
-(defun add-repo (name url)
-  (add-to-list 'package-archives
-               (cons name url) t))
-
-(defun package-refresh-if-required (packages)
-  (let* ((package-states (mapcar 'package-installed-p packages))
-         (not-installed-packages (delq t package-states)))
-    (when not-installed-packages
-      (package-refresh-contents))))
-
-(defun package-ensure-installed (package-name)
-  (when (not (package-installed-p package-name))
-    (package-install package-name)))
+(add-to-list 'load-path settings-dir)
 
 ;; Package initialization and automatic setup
+(require 'setup-package)
+
 (package-initialize)
+(add-repo "melpa-stable"
+          "https://stable.melpa.org/packages/")
 
-(add-repo "melpa-stable" "https://stable.melpa.org/packages/")
-
-(let ((packages '(magit badwolf-theme)))
-  (package-refresh-if-required packages)
-  (mapc 'package-ensure-installed packages))
+(let ((packages '(magit
+                  undo-tree
+                  badwolf-theme)))
+  (refresh-repos packages) ; refresh repos if a package is not installed
+  (install-packages packages)) ; install required packages
 
 ;; Theme settings
 (load-theme 'badwolf t)
