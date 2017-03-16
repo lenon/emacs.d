@@ -29,13 +29,13 @@
 ;; GUI settings
 (scroll-bar-mode -1) ; disable scroll bars
 (tool-bar-mode -1) ; disable tool-bar on GUI
-(setq inhibit-startup-screen 1) ; inhibits the startup screen
+(setq inhibit-startup-screen t) ; inhibits the startup screen
 (set-frame-font "DejaVu Sans Mono-12" t t) ; font face for all windows
 
 ;; Editor settings
 (setq show-paren-delay 0) ; show matching pairs of perentheses with 0 delay
 (show-paren-mode 1) ; show parentheses
-(setq-default truncate-lines 1) ; truncate lines (no-wrap)
+(setq-default truncate-lines t) ; truncate lines (no-wrap)
 (electric-pair-mode 1) ; auto insert matching delimiters
 (global-auto-revert-mode 1) ; auto revert files if they change on disk
 
