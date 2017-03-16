@@ -28,7 +28,8 @@
 
 ;; GUI settings
 (scroll-bar-mode -1) ; disable scroll bars
-(tool-bar-mode -1) ; disable tool-bar on GUI
+(tool-bar-mode -1) ; disable tool-bar
+(menu-bar-mode -1) ; disable menu bar
 (setq inhibit-startup-screen t) ; inhibits the startup screen
 (set-frame-font "DejaVu Sans Mono-12" t t) ; font face for all windows
 
