@@ -13,7 +13,7 @@
                   undo-tree
                   badwolf-theme)))
   (refresh-repos packages) ; refresh repos if a package is not installed
-  (install-packages packages)) ; install required packages
+  (install-packages packages)) ; install missing packages
 
 ;; Theme settings
 (load-theme 'badwolf t)
