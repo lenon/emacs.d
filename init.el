@@ -1,8 +1,6 @@
-;; Load-path setup
-(defconst settings-dir
-  (expand-file-name "settings" user-emacs-directory))
-
-(add-to-list 'load-path settings-dir)
+;; Add settings directory into load-path
+(let ((settings-dir (expand-file-name "settings" user-emacs-directory)))
+  (add-to-list 'load-path settings-dir))
 
 ;; Package initialization and automatic setup
 (require 'setup-package)
