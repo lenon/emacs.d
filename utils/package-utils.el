@@ -17,4 +17,4 @@
 (defun install-packages (packages)
   (mapc 'install-package packages))
 
-(provide 'setup-package)
+(provide 'package-utils)

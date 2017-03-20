@@ -1,9 +1,10 @@
-;; Add settings directory into load-path
-(let ((settings-dir (expand-file-name "settings" user-emacs-directory)))
+;; Add utils directory into load-path
+(let ((settings-dir (expand-file-name "utils" user-emacs-directory)))
   (add-to-list 'load-path settings-dir))
 
 ;; Package initialization and automatic setup
-(require 'setup-package)
+(require 'package)
+(require 'package-utils)
 
 (package-initialize)
 (add-repo "melpa-stable"
