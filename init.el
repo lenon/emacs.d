@@ -25,6 +25,7 @@
 (menu-bar-mode -1) ; disable menu bar
 (setq inhibit-startup-screen t) ; inhibits the startup screen
 (set-frame-font "DejaVu Sans Mono-12" t t) ; font face for all windows
+(setq ring-bell-function 'ignore) ; turn off audible bell and visual bell
 
 ;; Editor settings
 (setq show-paren-delay 0) ; show matching pairs of perentheses with 0 delay
