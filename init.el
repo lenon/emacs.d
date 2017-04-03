@@ -10,8 +10,7 @@
 (add-repo "melpa-stable"
           "https://stable.melpa.org/packages/")
 
-(let ((packages '(magit
-                  undo-tree
+(let ((packages '(auto-complete
                   badwolf-theme)))
   (refresh-repos packages) ; refresh repos if a package is not installed
   (install-packages packages)) ; install missing packages
@@ -55,3 +54,5 @@
                          tab-mark ; show tabs as characters
                          ))
 (global-whitespace-mode 1) ; enable whitespaces plugin
+
+(ac-config-default)
