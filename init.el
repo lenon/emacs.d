@@ -34,6 +34,7 @@
 (setq-default truncate-lines t) ; truncate lines (no-wrap)
 (electric-pair-mode 1) ; auto insert matching delimiters
 (global-auto-revert-mode 1) ; auto revert files if they change on disk
+(setq require-final-newline t) ; add a newline at the end of file
 
 ;; Encoding settings
 (set-language-environment "UTF-8")
