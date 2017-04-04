@@ -4,17 +4,16 @@
   (add-to-list 'package-archives
                (cons name url) t))
 
-(defun refresh-repos (packages)
-  (let* ((package-states (mapcar 'package-installed-p packages))
-         (not-installed-packages (delq t package-states)))
-    (when not-installed-packages
-      (package-refresh-contents))))
+(defvar refreshed-recently nil)
 
-(defun install-package (name)
-  (when (not (package-installed-p name))
-    (package-install name)))
+(defun refresh-repos-once ()
+  (when (not refreshed-recently)
+    (package-refresh-contents)
+    (setq refreshed-recently t)))
 
-(defun install-packages (packages)
-  (mapc 'install-package packages))
+(defun use-package (package-name)
+  (when (not (package-installed-p package-name))
+    (refresh-repos-once)
+    (package-install package-name)))
 
 (provide 'package-utils)

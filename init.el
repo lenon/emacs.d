@@ -10,10 +10,8 @@
 (add-repo "melpa-stable"
           "https://stable.melpa.org/packages/")
 
-(let ((packages '(auto-complete
-                  badwolf-theme)))
-  (refresh-repos packages) ; refresh repos if a package is not installed
-  (install-packages packages)) ; install missing packages
+(use-package 'auto-complete)
+(use-package 'badwolf-theme)
 
 ;; Theme settings
 (load-theme 'badwolf t)
