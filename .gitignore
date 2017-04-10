@@ -3,3 +3,4 @@ elpa/
 \#*\#
 session.*
 ac-comphist.dat
+custom.el

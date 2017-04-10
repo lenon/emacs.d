@@ -2,6 +2,11 @@
 (let ((settings-dir (expand-file-name "utils" user-emacs-directory)))
   (add-to-list 'load-path settings-dir))
 
+;; Save customizations in ~/.emacs.d/custom.el
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-readable-p custom-file)
+  (load custom-file))
+
 ;; Package initialization and automatic setup
 (require 'package)
 (require 'package-utils)
