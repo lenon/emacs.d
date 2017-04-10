@@ -1,6 +1,9 @@
-;; Add utils directory into load-path
-(let ((settings-dir (expand-file-name "utils" user-emacs-directory)))
-  (add-to-list 'load-path settings-dir))
+(defun add-to-load-path (dir)
+  (let ((abs-path (expand-file-name dir user-emacs-directory)))
+    (add-to-list 'load-path abs-path)))
+
+(add-to-load-path "utils")
+(add-to-load-path "settings")
 
 ;; Save customizations in ~/.emacs.d/custom.el
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -21,12 +24,8 @@
 ;; Theme settings
 (load-theme 'badwolf t)
 
-;; GUI settings
-(scroll-bar-mode -1) ; disable scroll bars
-(tool-bar-mode -1) ; disable tool-bar
-(menu-bar-mode -1) ; disable menu bar
-(setq inhibit-startup-screen t) ; inhibits the startup screen
-(setq ring-bell-function 'ignore) ; turn off audible bell and visual bell
+(require 'startup-settings)
+(require 'gui-settings)
 
 ;; Font face
 (if (eq system-type 'darwin)
