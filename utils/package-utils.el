@@ -1,10 +1,10 @@
 (require 'package)
 
+(defvar refreshed-recently nil)
+
 (defun add-repo (name url)
   (add-to-list 'package-archives
                (cons name url) t))
-
-(defvar refreshed-recently nil)
 
 (defun refresh-repos-once ()
   (when (not refreshed-recently)
