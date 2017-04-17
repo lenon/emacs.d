@@ -9,7 +9,7 @@
 
 (ert-deftest test-refresh-repos-once ()
   (with-mock
-    (stub package-refresh-contents)
+    (mock (package-refresh-contents))
     (refresh-repos-once))
 
   (with-mock
