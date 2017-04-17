@@ -20,12 +20,14 @@
 
 (use-package 'auto-complete)
 (use-package 'badwolf-theme)
+(use-package 'neotree)
 
 ;; Theme settings
 (load-theme 'badwolf t)
 
 (require 'startup-settings)
 (require 'gui-settings)
+(require 'neotree-settings)
 
 ;; Font face
 (if (eq system-type 'darwin)
