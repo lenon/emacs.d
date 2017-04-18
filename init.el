@@ -31,6 +31,7 @@
 (require 'startup-settings)
 (require 'gui-settings)
 (require 'neotree-settings)
+(require 'whitespace-settings)
 
 ;; Font face
 (if (eq system-type 'darwin)
@@ -51,16 +52,5 @@
 
 ;; Indentation settings
 (setq-default indent-tabs-mode nil) ; indent with spaces, no tabs
-
-(require 'whitespace)
-(setq whitespace-style '(face
-                         trailing ; highlight trailing spaces
-                         tabs ; highlight tabs
-                         spaces ; highlight spaces
-                         lines-tail ; highlight long lines
-                         space-mark ; show spaces as characters
-                         tab-mark ; show tabs as characters
-                         ))
-(global-whitespace-mode 1) ; enable whitespaces plugin
 
 (ac-config-default)
