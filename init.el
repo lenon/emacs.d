@@ -50,3 +50,4 @@
 (setq-default indent-tabs-mode nil) ; indent with spaces, no tabs
 
 (ac-config-default)
+(setq ac-auto-show-menu t)
