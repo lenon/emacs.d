@@ -15,6 +15,7 @@
 (require 'package-utils)
 
 (package-initialize)
+
 (add-repo "melpa-stable"
           "https://stable.melpa.org/packages/")
 
@@ -31,7 +32,7 @@
 
 ;; Font face
 (if (eq system-type 'darwin)
-    (set-frame-font "DejaVu Sans Mono-14" t t) ; bigger font for retina displays
+    (set-frame-font "DejaVu Sans Mono-15" t t) ; bigger font for retina displays
   (set-frame-font "DejaVu Sans Mono-12" t t))
 
 ;; Editor settings
