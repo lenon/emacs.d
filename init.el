@@ -21,6 +21,8 @@
 
 (use-package 'auto-complete)
 (use-package 'badwolf-theme)
+(use-package 'cider)
+(use-package 'clojure-mode)
 (use-package 'neotree)
 
 ;; Theme settings
