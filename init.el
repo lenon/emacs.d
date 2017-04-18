@@ -32,11 +32,7 @@
 (require 'gui-settings)
 (require 'neotree-settings)
 (require 'whitespace-settings)
-
-;; Font face
-(if (eq system-type 'darwin)
-    (set-frame-font "DejaVu Sans Mono-15" t t) ; bigger font for retina displays
-  (set-frame-font "DejaVu Sans Mono-12" t t))
+(require 'font-settings)
 
 ;; Editor settings
 (setq show-paren-delay 0) ; show matching pairs of perentheses with 0 delay
