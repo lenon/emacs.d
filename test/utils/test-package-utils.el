@@ -23,6 +23,7 @@
     (mock (package-installed-p 'some-package) => nil)
     (mock (refresh-repos-once))
     (mock (package-install 'some-package))
+    (mock (require 'some-package))
     (use-package 'some-package)))
 
 (ert-deftest test-use-package-already-installed ()
@@ -30,4 +31,5 @@
     (mock (package-installed-p 'some-package) => t)
     (not-called refresh-repos-once)
     (not-called package-install)
+    (mock (require 'some-package))
     (use-package 'some-package)))
