@@ -1,4 +1,11 @@
+(require 'package)
 (package-initialize)
+
+(when (not (package-installed-p 'el-mock))
+  (add-to-list 'package-archives
+               '("melpa" . "https://melpa.org/packages/"))
+  (package-refresh-contents)
+  (package-install 'el-mock))
 
 (require 'el-mock)
 (eval-when-compile
