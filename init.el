@@ -19,10 +19,10 @@
 (add-repo "melpa-stable"
           "https://stable.melpa.org/packages/")
 
-(use-package 'auto-complete)
 (use-package 'badwolf-theme)
 (use-package 'cider)
 (use-package 'clojure-mode)
+(use-package 'company)
 (use-package 'neotree)
 
 ;; Theme settings
@@ -49,5 +49,4 @@
 ;; Indentation settings
 (setq-default indent-tabs-mode nil) ; indent with spaces, no tabs
 
-(ac-config-default)
-(setq ac-auto-show-menu t)
+(global-company-mode)
