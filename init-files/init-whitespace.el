@@ -5,7 +5,7 @@
                          tabs ; highlight tabs
                          spaces ; highlight spaces
                          lines-tail ; highlight long lines
-                         space-mark ; show spaces as characters
+                         ;; space-mark ; show spaces as characters
                          tab-mark ; show tabs as characters
                          ))
 
