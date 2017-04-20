@@ -28,11 +28,9 @@
 ;; Theme settings
 (load-theme 'badwolf t)
 
-(require 'init-startup)
-(require 'init-gui)
+(require 'init-ui)
 (require 'init-neotree)
 (require 'init-whitespace)
-(require 'init-font-faces)
 
 ;; Editor settings
 (setq show-paren-delay 0) ; show matching pairs of perentheses with 0 delay
