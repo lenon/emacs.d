@@ -25,9 +25,6 @@
 (use-package 'company)
 (use-package 'neotree)
 
-;; Theme settings
-(load-theme 'badwolf t)
-
 (require 'init-ui)
 (require 'init-neotree)
 (require 'init-whitespace)

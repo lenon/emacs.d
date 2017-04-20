@@ -11,6 +11,8 @@
   (when (fboundp mode)
     (funcall mode -1)))
 
+(load-theme 'badwolf t) ; theme, srsly
+
 (setq ring-bell-function 'ignore) ; turn off audible bell and visual bell
 
 (if (eq system-type 'darwin)
