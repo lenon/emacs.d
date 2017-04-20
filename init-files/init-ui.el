@@ -23,4 +23,7 @@
 (dolist (face (face-list))
   (set-face-attribute face nil :weight 'normal))
 
+;; Start Emacs maximized
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 (provide 'init-ui)
