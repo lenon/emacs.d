@@ -26,6 +26,7 @@
 (use-package 'neotree)
 
 (require 'init-ui)
+(require 'init-backups)
 (require 'init-neotree)
 (require 'init-whitespace)
 
