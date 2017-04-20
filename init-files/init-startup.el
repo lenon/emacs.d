@@ -4,4 +4,4 @@
 ;; (put 'inhibit-startup-echo-area-message 'saved-value t)
 ;; (setq inhibit-startup-echo-area-message (user-login-name))
 
-(provide 'startup-settings)
+(provide 'init-startup)

@@ -6,4 +6,4 @@
 (dolist (face (face-list))
   (set-face-attribute face nil :weight 'normal))
 
-(provide 'font-settings)
+(provide 'init-font-faces)

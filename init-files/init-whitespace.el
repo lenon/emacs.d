@@ -11,4 +11,4 @@
 
 (global-whitespace-mode 1) ; enable whitespace plugin
 
-(provide 'whitespace-settings)
+(provide 'init-whitespace)

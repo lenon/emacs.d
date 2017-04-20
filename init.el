@@ -3,7 +3,7 @@
     (add-to-list 'load-path abs-path)))
 
 (add-to-load-path "utils")
-(add-to-load-path "settings")
+(add-to-load-path "init-files")
 
 ;; Save customizations in ~/.emacs.d/custom.el
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -28,11 +28,11 @@
 ;; Theme settings
 (load-theme 'badwolf t)
 
-(require 'startup-settings)
-(require 'gui-settings)
-(require 'neotree-settings)
-(require 'whitespace-settings)
-(require 'font-settings)
+(require 'init-startup)
+(require 'init-gui)
+(require 'init-neotree)
+(require 'init-whitespace)
+(require 'init-font-faces)
 
 ;; Editor settings
 (setq show-paren-delay 0) ; show matching pairs of perentheses with 0 delay

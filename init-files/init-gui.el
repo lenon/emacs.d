@@ -4,4 +4,4 @@
 
 (setq ring-bell-function 'ignore) ; turn off audible bell and visual bell
 
-(provide 'gui-settings)
+(provide 'init-gui)
