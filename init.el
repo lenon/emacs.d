@@ -29,6 +29,7 @@
 (require 'init-backups)
 (require 'init-neotree)
 (require 'init-whitespace)
+(require 'init-company)
 
 ;; Editor settings
 (setq show-paren-delay 0) ; show matching pairs of perentheses with 0 delay
@@ -44,5 +45,3 @@
 
 ;; Indentation settings
 (setq-default indent-tabs-mode nil) ; indent with spaces, no tabs
-
-(global-company-mode)
