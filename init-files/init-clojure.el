@@ -12,3 +12,5 @@
 
 (setq cider-use-overlays nil)
 (setq cider-overlays-use-font-lock t)
+
+(provide 'init-clojure)
