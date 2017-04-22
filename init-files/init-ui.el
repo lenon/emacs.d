@@ -55,7 +55,7 @@
   (set-face-attribute face nil :font emacsd-mode-line-font))
 
 ;; Change mode-line colors
-(set-face-attribute 'mode-line nil :background "firebrick3")
+(set-face-attribute 'mode-line nil :background "RoyalBlue3")
 (set-face-attribute 'mode-line nil :foreground "white")
 
 (provide 'init-ui)
