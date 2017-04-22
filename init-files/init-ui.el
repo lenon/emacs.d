@@ -1,6 +1,18 @@
 ;; Check if current system is a Mac
 (defconst emacsd-is-a-mac (eq system-type 'darwin))
 
+;; Default font
+(defconst emacsd-default-font
+  (if emacsd-is-a-mac
+      "DejaVu Sans Mono-15" ; bigger font for retina displays
+    "DejaVu Sans Mono-12"))
+
+;; Font for mode-line
+(defconst emacsd-mode-line-font
+  (if emacsd-is-a-mac
+      "DejaVu Sans Mono-13"
+    "DejaVu Sans Mono-10"))
+
 (setq inhibit-startup-screen t) ; hide the welcome screen
 
 ;; TODO: Disable the startup message in the echo area
@@ -18,14 +30,6 @@
 
 (setq ring-bell-function 'ignore) ; turn off audible bell and visual bell
 
-(if emacsd-is-a-mac
-    (set-frame-font "DejaVu Sans Mono-15" t t) ; bigger font for retina displays
-  (set-frame-font "DejaVu Sans Mono-12" t t))
-
-;; Disable bold fonts
-(dolist (face (face-list))
-  (set-face-attribute face nil :weight 'normal))
-
 ;; Start Emacs maximized
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
@@ -38,9 +42,16 @@
 (setq mode-line-position
       '((line-number-mode ("%l" (column-number-mode ":%c")))))
 
+;; Set the default font
+(set-frame-font emacsd-default-font t t)
+
+;; Disable bold fonts
+(dolist (face (face-list))
+  (set-face-attribute face nil :weight 'normal))
+
 ;; Use a smaller font for mode-line
 (dolist (face '(mode-line
                 mode-line-inactive))
-  (set-face-attribute face nil :font "DejaVu Sans Mono-13"))
+  (set-face-attribute face nil :font emacsd-mode-line-font))
 
 (provide 'init-ui)
