@@ -11,7 +11,7 @@
 (defconst emacsd-mode-line-font
   (if emacsd-is-a-mac
       "DejaVu Sans Mono-13"
-    "DejaVu Sans Mono-10"))
+    "DejaVu Sans Mono-12"))
 
 (setq inhibit-startup-screen t) ; hide the welcome screen
 
