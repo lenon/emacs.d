@@ -17,4 +17,7 @@
 ;; Cancel selections by typing non-matching characters
 (setq company-require-match 'never)
 
+;; Minimum prefix length for completion
+(setq company-minimum-prefix-length 1)
+
 (provide 'init-company)
