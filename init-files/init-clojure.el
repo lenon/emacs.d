@@ -3,8 +3,11 @@
 ;; Indent fact and facts like this:
 ;; (fact "xpto"
 ;;   (something) => true)
-(put-clojure-indent 'facts 1)
-(put-clojure-indent 'fact 1)
+(dolist (midje-statement '(facts
+                           fact
+                           provided
+                           tabular))
+  (put-clojure-indent midje-statement 'defun))
 
 ;; Display doc about symbols at point in the echo area
 (add-hook 'cider-mode-hook #'eldoc-mode)
@@ -17,5 +20,9 @@
 
 ;; Display results on the echo area
 (setq cider-overlays-use-font-lock t)
+
+;; Do not truncate lines on repl
+(with-eval-after-load 'cider-repl-mode-hook
+  (setq truncate-lines nil))
 
 (provide 'init-clojure)
