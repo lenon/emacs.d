@@ -1,35 +1,57 @@
-(ert-deftest test-add-repo ()
-  (add-repo "repo-a" "http://repo-a.com")
-  (add-repo "repo-b" "http://repo-b.com")
+(require 'package-utils)
 
-  (should (equal package-archives
-                 '(("gnu" . "http://elpa.gnu.org/packages/")
-                   ("repo-a" . "http://repo-a.com")
-                   ("repo-b" . "http://repo-b.com")))))
+(describe "add-repo"
+  (before-each
+    (redef 'package-archives '()))
 
-(ert-deftest test-refresh-repos-once ()
-  (with-mock
-    (mock (package-refresh-contents))
-    (refresh-repos-once))
+  (it "adds new repos to the package-archives list"
+    (add-repo "repo-a" "https://repo-a.com")
+    (add-repo "repo-b" "https://repo-b.com")
 
-  (with-mock
-    ;; should not try to refresh packages again
-    ;; when called more than once in the same session
-    (not-called package-refresh-contents)
-    (refresh-repos-once)))
+    (expect package-archives
+            :to-equal
+            '(("repo-a" . "https://repo-a.com")
+              ("repo-b" . "https://repo-b.com")))))
 
-(ert-deftest test-use-package-not-installed ()
-  (with-mock
-    (mock (package-installed-p 'some-package) => nil)
-    (mock (refresh-repos-once))
-    (mock (package-install 'some-package))
-    (mock (require 'some-package))
-    (use-package 'some-package)))
+(describe "refresh-repos-once"
+  (before-each
+    (spy-on 'package-refresh-contents))
 
-(ert-deftest test-use-package-already-installed ()
-  (with-mock
-    (mock (package-installed-p 'some-package) => t)
-    (not-called refresh-repos-once)
-    (not-called package-install)
-    (mock (require 'some-package))
-    (use-package 'some-package)))
+  (it "refreshes repositories on first call"
+    (refresh-repos-once)
+    (expect 'package-refresh-contents :to-have-been-called))
+
+  (it "does not refresh repos on subsequent calls"
+    (refresh-repos-once)
+    (expect 'package-refresh-contents :to-not-have-been-called)))
+
+(describe "use-package"
+  (describe "package is not installed"
+    (before-each
+      (spy-on 'package-installed-p :and-return-value nil)
+      (spy-on 'refresh-repos-once)
+      (spy-on 'package-install)
+      (spy-on 'require))
+
+    (it "installs new packages"
+      (use-package 'some-package)
+
+      (expect 'package-installed-p :to-have-been-called-with 'some-package)
+      (expect 'refresh-repos-once :to-have-been-called)
+      (expect 'package-install :to-have-been-called-with 'some-package)
+      (expect 'require :to-have-been-called-with 'some-package)))
+
+  (describe "package is already installed"
+    (before-each
+      (spy-on 'package-installed-p :and-return-value t)
+      (spy-on 'refresh-repos-once)
+      (spy-on 'package-install)
+      (spy-on 'require))
+
+    (it "just requires it"
+      (use-package 'some-package)
+
+      (expect 'package-installed-p :to-have-been-called-with 'some-package)
+      (expect 'refresh-repos-once :to-not-have-been-called)
+      (expect 'package-install :to-not-have-been-called)
+      (expect 'require :to-have-been-called-with 'some-package))))

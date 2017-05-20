@@ -1,15 +1,25 @@
+;; -*- lexical-binding: t -*-
 (require 'package)
+
+(add-to-list 'package-archives
+             '("melpa-stable" .
+               "http://stable.melpa.org/packages/") t)
 (package-initialize)
 
-(when (not (package-installed-p 'el-mock))
-  (add-to-list 'package-archives
-               '("melpa" . "https://melpa.org/packages/"))
+(when (not (package-installed-p 'buttercup))
   (package-refresh-contents)
-  (package-install 'el-mock))
-
-(require 'el-mock)
-(eval-when-compile
-  (require 'cl)) ;; for el-mock
+  (package-install 'buttercup))
 
 (add-to-list 'load-path (expand-file-name "utils" user-emacs-directory))
-(require 'package-utils)
+
+(require 'buttercup)
+
+(defun redef (var temp-value)
+  "Temporarily redefines a variable"
+  (let ((orig-var (symbol-value var)))
+    (set var temp-value)
+    (buttercup--add-cleanup (lambda ()
+                              (set var orig-var)))))
+
+(buttercup-define-matcher :to-not-have-been-called (spy)
+  (= 0 (spy-calls-count spy)))
