@@ -1,12 +1,15 @@
 ;; The directory used for tmp stuff
 (defconst emacsd-tmp-dir
   (expand-file-name "tmp" user-emacs-directory))
+
 ;; Prefix used for auto-save list files
 (defconst emacsd-auto-save-file
   (expand-file-name ".auto-save-file-" emacsd-tmp-dir))
+
 ;; Directory used for backups
 (defconst emacsd-backups-dir
   (expand-file-name "backups" emacsd-tmp-dir))
+
 ;; Directory used for auto-save files
 (defconst emacsd-auto-save-dir
   (expand-file-name "auto-save" emacsd-tmp-dir))

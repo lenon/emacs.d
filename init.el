@@ -31,6 +31,7 @@
 (require 'init-whitespace)
 (require 'init-company)
 (require 'init-clojure)
+(require 'init-elisp)
 
 ;; Editor settings
 (setq show-paren-delay 0) ; show matching pairs of perentheses with 0 delay
