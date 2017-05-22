@@ -20,4 +20,9 @@
 ;; Minimum prefix length for completion
 (setq company-minimum-prefix-length 1)
 
+;; Change selection background color
+(set-face-attribute 'company-tooltip-selection nil
+                    :background "RoyalBlue3"
+                    :foreground "White")
+
 (provide 'init-company)
