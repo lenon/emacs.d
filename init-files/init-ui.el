@@ -18,17 +18,4 @@
 ;; Start Emacs maximized
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; Show the current line and column number in the mode-line
-(line-number-mode)
-(column-number-mode)
-
-;; Show line and column number like this "123:456" in the mode-line
-;; Also removes the "All/Top/Bot" indicator
-(setq mode-line-position
-      '((line-number-mode ("%l" (column-number-mode ":%c")))))
-
-;; Change mode-line colors
-(set-face-attribute 'mode-line nil :background "RoyalBlue3")
-(set-face-attribute 'mode-line nil :foreground "white")
-
 (provide 'init-ui)
