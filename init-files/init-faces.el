@@ -2,7 +2,7 @@
 
 ;; Default font
 (defconst emacsd-default-font
-  (if (emacsd-is-a-mac?)
+  (if (emacsd/system-is-a-mac?)
       "DejaVu Sans Mono-15" ; bigger font for retina displays
     "DejaVu Sans Mono-12"))
 
