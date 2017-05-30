@@ -47,6 +47,9 @@
 (global-linum-mode)
 (fringe-mode)
 
+;; Disable VC
+(setq vc-handled-backends ())
+
 ;; Encoding settings
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8) ; use utf-8 for new buffers, copy/paste, etc
