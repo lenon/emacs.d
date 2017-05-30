@@ -44,6 +44,9 @@
 (global-auto-revert-mode 1) ; auto revert files if they change on disk
 (setq require-final-newline t) ; add a newline at the end of file
 
+(global-linum-mode)
+(fringe-mode)
+
 ;; Encoding settings
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8) ; use utf-8 for new buffers, copy/paste, etc
