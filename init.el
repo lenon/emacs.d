@@ -44,9 +44,6 @@
 (global-auto-revert-mode 1) ; auto revert files if they change on disk
 (setq require-final-newline t) ; add a newline at the end of file
 
-(global-linum-mode)
-(fringe-mode)
-
 ;; Disable VC
 (setq vc-handled-backends ())
 
