@@ -14,18 +14,22 @@
 (defconst emacsd/auto-save-prefix
   (expand-file-name ".auto-save-list-" emacsd/auto-save-dir))
 
-;; Ensure backups dir and auto-save dir exist
-(dolist (dir `(,emacsd/backups-dir
-               ,emacsd/auto-save-dir))
-  (when (not (file-exists-p dir))
-    (mkdir dir t)))
+;; Ensure that backups and auto-save dirs exist
+(mkdir emacsd/backups-dir t)
+(mkdir emacsd/auto-save-dir t)
 
-;; Save all backups into the same dir (do not create ~ files everywhere)
+;; Save all backups into the same dir
+;; Prevent emacs from creating ~* files everywhere
 (setq backup-directory-alist `(("." . ,emacsd/backups-dir)))
 
-;; Auto-save files into the same dir (do not create #.*# files everywhere)
+;; Auto-save files into the same dir
+;; Prevent emacs from creating #.*# files everywhere
 (setq auto-save-file-name-transforms
       `((".*" ,(concat emacsd/auto-save-dir "/") t)))
 (setq auto-save-list-file-prefix emacsd/auto-save-prefix)
+
+;; Disable interlock files used to protect against simultaneous editing
+;; Prevent emacs from creating .#* symlinks
+(setq create-lockfiles nil)
 
 (provide 'init-backups)
