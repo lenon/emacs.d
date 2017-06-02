@@ -1,6 +1,9 @@
 ;; Start Emacs maximized
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
+;; Prevent emacs from resizing frames when changing face sizes
+(setq frame-inhibit-implied-resize t)
+
 ;; Disable scroll bars, the tool bar and the menu bar when on GUI Emacs
 (dolist (mode '(scroll-bar-mode
                 tool-bar-mode
@@ -26,5 +29,27 @@
 
 ;; Show a margin on the left and right edges of a window
 (fringe-mode)
+
+;; Disable bidirectional text
+(setq-default bidi-display-reordering nil)
+
+;; Show cursor only in selected windows
+(setq-default cursor-in-non-selected-windows nil)
+
+;; Disable dialog boxes in GUI
+(setq use-dialog-box nil)
+
+;; Show keystrokes in the echo area
+(setq echo-keystrokes 0.1)
+
+;; Answer with just y or n
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; 80 characters limit for lines
+(setq-default fill-column 80)
+
+(require 'uniquify)
+;; Add parts of each file's directory to the buffer name if not unique
+(setq uniquify-buffer-name-style 'forward)
 
 (provide 'init-ui)
