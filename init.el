@@ -16,8 +16,7 @@
 
 (package-initialize 'no-activate)
 
-(package-utils/add-repo "melpa-stable"
-                        "https://stable.melpa.org/packages/")
+(package-utils/add-repo "melpa" "https://melpa.org/packages/")
 
 (package-utils/use-package 'badwolf-theme)
 (package-utils/use-package 'cider)
