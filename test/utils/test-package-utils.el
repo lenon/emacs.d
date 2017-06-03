@@ -31,6 +31,7 @@
       (spy-on 'package-installed-p :and-return-value nil)
       (spy-on 'refresh-repos-once)
       (spy-on 'package-install)
+      (spy-on 'package-activate)
       (spy-on 'require))
 
     (it "installs new packages"
@@ -39,6 +40,7 @@
       (expect 'package-installed-p :to-have-been-called-with 'some-package)
       (expect 'refresh-repos-once :to-have-been-called)
       (expect 'package-install :to-have-been-called-with 'some-package)
+      (expect 'package-activate :to-have-been-called-with 'some-package)
       (expect 'require :to-have-been-called-with 'some-package)))
 
   (describe "package is already installed"
@@ -46,12 +48,14 @@
       (spy-on 'package-installed-p :and-return-value t)
       (spy-on 'refresh-repos-once)
       (spy-on 'package-install)
+      (spy-on 'package-activate)
       (spy-on 'require))
 
-    (it "just requires it"
+    (it "requires and activates it"
       (package-utils/use-package 'some-package)
 
       (expect 'package-installed-p :to-have-been-called-with 'some-package)
       (expect 'refresh-repos-once :to-not-have-been-called)
       (expect 'package-install :to-not-have-been-called)
+      (expect 'package-activate :to-have-been-called-with 'some-package)
       (expect 'require :to-have-been-called-with 'some-package))))

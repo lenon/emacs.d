@@ -14,7 +14,7 @@
 (require 'package)
 (require 'package-utils)
 
-(package-initialize)
+(package-initialize 'no-activate)
 
 (package-utils/add-repo "melpa-stable"
                         "https://stable.melpa.org/packages/")

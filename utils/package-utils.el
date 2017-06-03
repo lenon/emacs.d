@@ -15,6 +15,7 @@
   (when (not (package-installed-p package-name))
     (refresh-repos-once)
     (package-install package-name))
+  (package-activate package-name)
   (require package-name))
 
 (provide 'package-utils)
