@@ -13,7 +13,7 @@
 
 (defun package-utils/use-package (package-name)
   (when (not (package-installed-p package-name))
-    (refresh-repos-once)
+    (package-utils/refresh-repos-once)
     (package-install package-name))
   (package-activate package-name)
   (require package-name))
