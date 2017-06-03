@@ -22,18 +22,18 @@
 (package-utils/use-package 'cider)
 (package-utils/use-package 'clojure-mode)
 (package-utils/use-package 'company)
-(package-utils/use-package 'neotree)
+(package-utils/use-package 'sr-speedbar)
 
 (require 'init-ui)
 (require 'init-faces)
 (require 'init-mode-line)
 
 (require 'init-backups)
-(require 'init-neotree)
-(require 'init-whitespace)
-(require 'init-company)
 (require 'init-clojure)
+(require 'init-company)
 (require 'init-elisp)
+(require 'init-speedbar)
+(require 'init-whitespace)
 
 ;; Editor settings
 (setq show-paren-delay 0) ; show matching pairs of perentheses with 0 delay
