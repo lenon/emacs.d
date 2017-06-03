@@ -1,17 +1,17 @@
 (require 'package)
 
-(defvar refreshed-recently nil)
+(defvar package-utils/refreshed-recently nil)
 
-(defun add-repo (name url)
+(defun package-utils/add-repo (name url)
   (add-to-list 'package-archives
                (cons name url) t))
 
-(defun refresh-repos-once ()
-  (when (not refreshed-recently)
+(defun package-utils/refresh-repos-once ()
+  (when (not package-utils/refreshed-recently)
     (package-refresh-contents)
-    (setq refreshed-recently t)))
+    (setq package-utils/refreshed-recently t)))
 
-(defun use-package (package-name)
+(defun package-utils/use-package (package-name)
   (when (not (package-installed-p package-name))
     (refresh-repos-once)
     (package-install package-name))

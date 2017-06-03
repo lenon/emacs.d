@@ -16,14 +16,14 @@
 
 (package-initialize)
 
-(add-repo "melpa-stable"
-          "https://stable.melpa.org/packages/")
+(package-utils/add-repo "melpa-stable"
+                        "https://stable.melpa.org/packages/")
 
-(use-package 'badwolf-theme)
-(use-package 'cider)
-(use-package 'clojure-mode)
-(use-package 'company)
-(use-package 'neotree)
+(package-utils/use-package 'badwolf-theme)
+(package-utils/use-package 'cider)
+(package-utils/use-package 'clojure-mode)
+(package-utils/use-package 'company)
+(package-utils/use-package 'neotree)
 
 (require 'init-ui)
 (require 'init-faces)
