@@ -1,3 +1,4 @@
+(require 'emacsd)
 (require 'sr-speedbar)
 
 ;; Font for speedbar
@@ -23,7 +24,7 @@
                 speedbar-directory-face
                 speedbar-tag-face
                 speedbar-selected-face))
-  (set-face-attribute face nil :height (* 10 emacsd/speedbar-font-size)))
+  (emacsd/set-face-size face emacsd/speedbar-font-size))
 
 (defun emacsd/speedbar-mode-hook ()
   ;; Disable line numbers while in speedbar

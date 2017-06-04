@@ -1,3 +1,5 @@
+(require 'emacsd)
+
 ;; Start Emacs maximized
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
@@ -29,6 +31,9 @@
 
 ;; Show a margin on the left and right edges of a window
 (fringe-mode)
+
+;; Change linum font size
+(emacsd/set-face-size 'linum 12)
 
 ;; Disable bidirectional text
 (setq-default bidi-display-reordering nil)

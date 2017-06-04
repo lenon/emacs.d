@@ -14,3 +14,9 @@
 
     (it "returns false"
       (expect (emacsd/system-is-a-mac?) :to-be nil))))
+
+(describe "emacsd/set-face-size"
+  (it "changes face height"
+    (make-face 'face-for-test)
+    (emacsd/set-face-size 'face-for-test 12)
+    (expect (face-attribute 'face-for-test :height) :to-equal 120)))

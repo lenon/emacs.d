@@ -13,7 +13,7 @@
 ;; Change mode-line font size
 (dolist (face '(mode-line
                 mode-line-inactive))
-  (set-face-attribute face nil :height (* 10 emacsd/mode-line-font-size)))
+  (emacsd/set-face-size face emacsd/mode-line-font-size))
 
 ;; Show the current line and column number in the mode-line
 (line-number-mode)
