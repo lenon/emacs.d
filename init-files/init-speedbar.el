@@ -7,6 +7,10 @@
 ;; Show speedbar on the left side
 (setq sr-speedbar-right-side nil)
 
+;; Change speedbar size
+(setq sr-speedbar-default-width 28)
+(setq sr-speedbar-width 28)
+
 ;; Use only ASCII
 (setq speedbar-use-images nil)
 
@@ -25,7 +29,9 @@
   ;; Disable line numbers while in speedbar
   (linum-mode -1)
   ;; Hide the mode-line on speedbar
-  (setq mode-line-format nil))
+  (setq mode-line-format nil)
+  ;; Do not allow window to be resized
+  (setq window-size-fixed 'width))
 
 (add-hook 'speedbar-mode-hook 'emacsd/speedbar-mode-hook)
 
