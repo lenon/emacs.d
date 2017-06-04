@@ -30,10 +30,13 @@
 (global-linum-mode)
 
 ;; Show a margin on the left and right edges of a window
-(fringe-mode)
+(fringe-mode 4)
 
 ;; Change linum font size
 (emacsd/set-face-size 'linum 12)
+
+;; Add a space between vertical window separator and linum
+(setq linum-format " %d")
 
 ;; Disable bidirectional text
 (setq-default bidi-display-reordering nil)
