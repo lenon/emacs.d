@@ -12,8 +12,14 @@
 (setq sr-speedbar-default-width 28)
 (setq sr-speedbar-width 28)
 
+;; Do not change current directory of speedbar
+(setq sr-speedbar-auto-refresh nil)
+
 ;; Use only ASCII
 (setq speedbar-use-images nil)
+
+;; Show all files in speedbar
+(setq speedbar-show-unknown-files t)
 
 ;; Key binding to toggle Speedbar
 (global-set-key (kbd "C-c s") 'sr-speedbar-toggle)
