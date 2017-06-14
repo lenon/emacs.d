@@ -2,7 +2,7 @@
 
 ;; Font for mode-line
 (defconst emacsd/mode-line-font-size
-  (if (emacsd/system-is-a-mac?) 13 12))
+  (if (emacsd/system-is-a-mac?) 12 10))
 
 ;; Background color
 (defconst emacsd/mode-line-background "dark violet")
