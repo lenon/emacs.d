@@ -1,5 +1,12 @@
 (require 'emacsd)
 
+;; Font size for linum
+(defconst emacsd/linum-font-size
+  (if (emacsd/system-is-a-mac?) 12 10))
+
+;; Window divider color
+(defconst emacsd/vertical-border-color "MediumOrchid4")
+
 ;; Start Emacs maximized
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
@@ -33,7 +40,7 @@
 (fringe-mode 4)
 
 ;; Change linum font size
-(emacsd/set-face-size 'linum 12)
+(emacsd/set-face-size 'linum emacsd/linum-font-size)
 
 ;; Add a space between vertical window separator and linum
 (setq linum-format " %d")
@@ -55,6 +62,10 @@
 
 ;; 80 characters limit for lines
 (setq-default fill-column 80)
+
+;; Change window divider color
+(set-face-background 'vertical-border emacsd/vertical-border-color)
+(set-face-foreground 'vertical-border emacsd/vertical-border-color)
 
 (require 'uniquify)
 ;; Add parts of each file's directory to the buffer name if not unique
