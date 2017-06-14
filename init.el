@@ -1,4 +1,5 @@
 (defun add-to-load-path (dir)
+  "Receives a dir relative to `user-emacs-directory' and adds it to the load path"
   (let ((abs-path (expand-file-name dir user-emacs-directory)))
     (add-to-list 'load-path abs-path)))
 
