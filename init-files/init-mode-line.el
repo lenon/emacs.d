@@ -25,7 +25,7 @@
       '((line-number-mode ("%l" (column-number-mode ":%c")))))
 
 ;; Change mode-line colors
-(set-face-attribute 'mode-line nil :background emacsd/mode-line-background)
-(set-face-attribute 'mode-line nil :foreground emacsd/mode-line-foreground)
+(set-face-background 'mode-line emacsd/mode-line-background)
+(set-face-foreground 'mode-line emacsd/mode-line-foreground)
 
 (provide 'init-mode-line)
