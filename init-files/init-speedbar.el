@@ -45,14 +45,19 @@
                     :background emacsd/speedbar-separator-background
                     :foreground emacsd/speedbar-separator-color)
 
-(defun emacsd/speedbar-mode-hook ()
-  ;; Disable line numbers while in speedbar
-  (linum-mode -1)
-  ;; Hide the mode-line on speedbar
-  (setq mode-line-format nil)
-  ;; Do not allow window to be resized
-  (setq window-size-fixed 'width))
+(defun emacsd/sr-speedbar-open ()
+  (with-current-buffer sr-speedbar-buffer-name
+    ;; Disable line numbers while in speedbar
+    (linum-mode 0)
+    ;; Hide the mode-line on speedbar
+    (setq mode-line-format nil)
+    ;; Do not allow window to be resized
+    (setq window-size-fixed 'width)
+    ;; Remove fringes from speedbar
+    (set-window-fringes nil 0 0)))
 
-(add-hook 'speedbar-mode-hook 'emacsd/speedbar-mode-hook)
+;; sr-speedbar does not provide a mode hook, so I had to adivise this
+;; function for some tweaks to work
+(advice-add 'sr-speedbar-open :after 'emacsd/sr-speedbar-open)
 
 (provide 'init-speedbar)
