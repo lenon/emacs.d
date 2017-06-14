@@ -5,6 +5,12 @@
 (defconst emacsd/speedbar-font-size
   (if (emacsd/system-is-a-mac?) 13 12))
 
+;; Background color for separator
+(defconst emacsd/speedbar-separator-background "purple4")
+
+;; Font color for separator
+(defconst emacsd/speedbar-separator-color "white")
+
 ;; Show speedbar on the left side
 (setq sr-speedbar-right-side nil)
 
@@ -29,8 +35,15 @@
                 speedbar-file-face
                 speedbar-directory-face
                 speedbar-tag-face
-                speedbar-selected-face))
+                speedbar-selected-face
+                speedbar-separator-face))
   (emacsd/set-face-size face emacsd/speedbar-font-size))
+
+;; Change text and background colors for separators
+(set-face-attribute 'speedbar-separator-face nil
+                    :overline nil
+                    :background emacsd/speedbar-separator-background
+                    :foreground emacsd/speedbar-separator-color)
 
 (defun emacsd/speedbar-mode-hook ()
   ;; Disable line numbers while in speedbar
