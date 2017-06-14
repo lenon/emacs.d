@@ -3,13 +3,15 @@
 
 ;; Font for speedbar
 (defconst emacsd/speedbar-font-size
-  (if (emacsd/system-is-a-mac?) 13 12))
+  (if (emacsd/system-is-a-mac?) 13 10))
 
-;; Background color for separator
+;; Colors for speedbar separator
 (defconst emacsd/speedbar-separator-background "purple4")
+(defconst emacsd/speedbar-separator-foreground "white")
 
-;; Font color for separator
-(defconst emacsd/speedbar-separator-color "white")
+;; Colors for highlight
+(defconst emacsd/speedbar-highlight-background "DarkMagenta")
+(defconst emacsd/speedbar-highlight-foreground "white")
 
 ;; Show speedbar on the left side
 (setq sr-speedbar-right-side nil)
@@ -40,10 +42,12 @@
   (emacsd/set-face-size face emacsd/speedbar-font-size))
 
 ;; Change text and background colors for separators
-(set-face-attribute 'speedbar-separator-face nil
-                    :overline nil
-                    :background emacsd/speedbar-separator-background
-                    :foreground emacsd/speedbar-separator-color)
+(set-face-background 'speedbar-separator-face emacsd/speedbar-separator-background)
+(set-face-foreground 'speedbar-separator-face emacsd/speedbar-separator-foreground)
+
+;; Change text and background colors for highlight
+(set-face-background 'speedbar-highlight-face emacsd/speedbar-highlight-background)
+(set-face-foreground 'speedbar-highlight-face emacsd/speedbar-highlight-foreground)
 
 (defun emacsd/sr-speedbar-open ()
   (with-current-buffer sr-speedbar-buffer-name
