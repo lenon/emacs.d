@@ -26,7 +26,6 @@
 (package-utils/use-package 'sr-speedbar)
 
 (require 'init-ui)
-(require 'init-faces)
 (require 'init-mode-line)
 
 (require 'init-backups)

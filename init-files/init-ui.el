@@ -1,27 +1,49 @@
 (require 'emacsd)
 
-;; Font size for linum
-(defconst emacsd/linum-font-size
-  (if (emacsd/system-is-a-mac?) 12 10))
+(defconst emacsd/default-font
+  "dejavu sans mono"
+  "The default font for all frames.")
 
-;; Window divider color
-(defconst emacsd/vertical-border-color "MediumOrchid4")
+(defconst emacsd/default-font-size
+  (emacsd/proportional-font-size 15)
+  "The default font size for all frames.")
+
+(defconst emacsd/linum-font-size
+  (emacsd/proportional-font-size 12)
+  "Font size used for line numbers.")
+
+(defconst emacsd/vertical-border-color
+  "DarkOrchid4"
+  "Color used for window divider.")
 
 ;; Start Emacs maximized
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
-;; Prevent emacs from resizing frames when changing face sizes
-(setq frame-inhibit-implied-resize t)
-
-;; Disable scroll bars, the tool bar and the menu bar when on GUI Emacs
+;; Disable scroll bars, the tool bar and the menu bar when they are available
+;; (usually on GUI Emacs)
 (dolist (mode '(scroll-bar-mode
                 tool-bar-mode
                 menu-bar-mode))
   (when (fboundp mode)
     (funcall mode -1)))
 
-;; Hide the welcome screen
+;; Prevent emacs from resizing frames when changing face sizes
+(setq frame-inhibit-implied-resize t)
+
+;; Change the default font family and size for all frames
+(set-face-attribute 'default nil
+                    :family emacsd/default-font
+                    :height (emacsd/calc-font-height emacsd/default-font-size))
+
+;; Change :weight property on all fonts to 'normal. I don't like bold fonts.
+(dolist (face (face-list))
+  (set-face-attribute face nil :weight 'normal))
+
+;; Hide the welcome screen. Show a *scratch* buffer instead
 (setq inhibit-startup-screen t)
+
+;; Turn off the annoying audible bell and visual bell
+(setq ring-bell-function 'ignore)
 
 ;; TODO: Disable the startup message in the echo area
 ;; (put 'inhibit-startup-echo-area-message 'saved-value t)
@@ -30,20 +52,18 @@
 ;; Load the theme (srsly)
 (load-theme 'badwolf t)
 
-;; Turn off the annoying audible bell and visual bell
-(setq ring-bell-function 'ignore)
-
 ;; Show line numbers in the left margin
 (global-linum-mode)
 
-;; Show a margin on the left and right edges of a window
-(fringe-mode 4)
-
 ;; Change linum font size
-(emacsd/set-face-size 'linum emacsd/linum-font-size)
+(set-face-attribute 'linum nil
+                    :height (emacsd/calc-font-height emacsd/linum-font-size))
 
 ;; Add a space between vertical window separator and linum
 (setq linum-format " %d")
+
+;; Show a margin on the left and right edges of a window
+(fringe-mode 3)
 
 ;; Disable bidirectional text
 (setq-default bidi-display-reordering nil)

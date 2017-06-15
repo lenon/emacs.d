@@ -5,7 +5,7 @@
   (if (emacsd/system-is-a-mac?) 12 10))
 
 ;; Background color
-(defconst emacsd/mode-line-background "dark violet")
+(defconst emacsd/mode-line-background "DarkOrchid4")
 
 ;; Color for text
 (defconst emacsd/mode-line-foreground "white")
