@@ -20,3 +20,16 @@
     (make-face 'face-for-test)
     (emacsd/set-face-size 'face-for-test 12)
     (expect (face-attribute 'face-for-test :height) :to-equal 120)))
+
+(describe "emacsd/calc-font-height"
+  (it "multiplies size by 10"
+    (expect (emacsd/calc-font-height 12) :to-equal 120)))
+
+(describe "emacsd/proportional-font-size"
+  (it "calculates an appropriate font-size for macOS"
+    (redef 'system-type 'darwin)
+    (expect (emacsd/proportional-font-size 12) :to-equal 12))
+
+  (it "calculates an appropriate font-size for gnu/linux"
+    (redef 'system-type 'gnu/linux)
+    (expect (emacsd/proportional-font-size 12) :to-equal 10)))
