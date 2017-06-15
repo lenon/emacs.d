@@ -35,10 +35,6 @@
                     :family emacsd/default-font
                     :height (emacsd/calc-font-height emacsd/default-font-size))
 
-;; Change :weight property on all fonts to 'normal. I don't like bold fonts.
-(dolist (face (face-list))
-  (set-face-attribute face nil :weight 'normal))
-
 ;; Hide the welcome screen. Show a *scratch* buffer instead
 (setq inhibit-startup-screen t)
 
