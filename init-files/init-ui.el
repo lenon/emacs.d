@@ -16,6 +16,11 @@
   "DarkOrchid4"
   "Color used for window divider.")
 
+(defun emacsd/blink-mode-line ()
+  "Blinks the modeline."
+  (invert-face 'mode-line)
+  (run-with-timer 0.05 nil 'invert-face 'mode-line))
+
 ;; Start Emacs maximized
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
@@ -29,6 +34,10 @@
 
 ;; Prevent emacs from resizing frames when changing face sizes
 (setq frame-inhibit-implied-resize t)
+;; Turn off the annoying audible and visible bell on errors...
+(setq visible-bell nil)
+;; ...and blink the mode-line instead
+(setq ring-bell-function 'emacsd/blink-mode-line)
 
 ;; Change the default font family and size for all frames
 (set-face-attribute 'default nil
@@ -37,9 +46,6 @@
 
 ;; Hide the welcome screen. Show a *scratch* buffer instead
 (setq inhibit-startup-screen t)
-
-;; Turn off the annoying audible bell and visual bell
-(setq ring-bell-function 'ignore)
 
 ;; TODO: Disable the startup message in the echo area
 ;; (put 'inhibit-startup-echo-area-message 'saved-value t)
