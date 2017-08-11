@@ -16,4 +16,14 @@
 ;; Indentation settings
 (setq-default indent-tabs-mode nil) ; indent with spaces, no tabs
 
+;; 80 characters limit for lines
+(setq-default fill-column 80)
+
+;; Disable bidirectional text
+(setq-default bidi-display-reordering nil)
+
+(require 'uniquify)
+;; Add parts of each file's directory to the buffer name if not unique
+(setq uniquify-buffer-name-style 'forward)
+
 (provide 'init-editor)
