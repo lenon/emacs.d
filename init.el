@@ -6,11 +6,6 @@
 (add-to-load-path "utils")
 (add-to-load-path "init-files")
 
-;; Save customizations in ~/.emacs.d/custom.el
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(when (file-readable-p custom-file)
-  (load custom-file))
-
 ;; Package initialization and automatic setup
 (require 'package)
 (require 'package-utils)
@@ -27,6 +22,7 @@
 
 (require 'init-ui)
 (require 'init-mode-line)
+(require 'init-editor)
 
 (require 'init-backups)
 (require 'init-clojure)
@@ -35,20 +31,7 @@
 (require 'init-speedbar)
 (require 'init-whitespace)
 
-;; Editor settings
-(setq show-paren-delay 0) ; show matching pairs of perentheses with 0 delay
-(show-paren-mode 1) ; show parentheses
-(setq-default truncate-lines t) ; truncate lines (no-wrap)
-(electric-pair-mode 1) ; auto insert matching delimiters
-(global-auto-revert-mode 1) ; auto revert files if they change on disk
-(setq require-final-newline t) ; add a newline at the end of file
-
-;; Disable VC
-(setq vc-handled-backends ())
-
-;; Encoding settings
-(set-language-environment "UTF-8")
-(set-default-coding-systems 'utf-8) ; use utf-8 for new buffers, copy/paste, etc
-
-;; Indentation settings
-(setq-default indent-tabs-mode nil) ; indent with spaces, no tabs
+;; Save customizations in ~/.emacs.d/custom.el
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-readable-p custom-file)
+  (load custom-file))
