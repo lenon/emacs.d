@@ -88,4 +88,7 @@
 ;; Show cursor only in selected windows
 (setq-default cursor-in-non-selected-windows nil)
 
+;; No progressive speed plz
+(setq mouse-wheel-progressive-speed nil)
+
 (provide 'init-ui)
