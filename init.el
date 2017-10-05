@@ -14,7 +14,7 @@
 
 (package-utils/add-repo "melpa" "https://melpa.org/packages/")
 
-(package-utils/use-package 'badwolf-theme)
+(package-utils/use-package 'monokai-theme)
 (package-utils/use-package 'cider)
 (package-utils/use-package 'clojure-mode)
 (package-utils/use-package 'company)

@@ -23,8 +23,7 @@
 
 ;;; Theme
 
-(setq badwolf-keywords-nobold t)
-(load-theme 'badwolf 'trust)
+(load-theme 'monokai 'trust)
 
 ;;; General settings
 
