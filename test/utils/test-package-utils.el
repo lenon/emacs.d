@@ -23,7 +23,7 @@
 
   (it "does not refresh repos on subsequent calls"
     (package-utils/refresh-repos-once)
-    (expect 'package-refresh-contents :to-not-have-been-called)))
+    (expect 'package-refresh-contents :not :to-have-been-called)))
 
 (describe "package-utils/use-package"
   (describe "package is not installed"
@@ -55,7 +55,7 @@
       (package-utils/use-package 'some-package)
 
       (expect 'package-installed-p :to-have-been-called-with 'some-package)
-      (expect 'package-utils/refresh-repos-once :to-not-have-been-called)
-      (expect 'package-install :to-not-have-been-called)
+      (expect 'package-utils/refresh-repos-once :not :to-have-been-called)
+      (expect 'package-install :not :to-have-been-called)
       (expect 'package-activate :to-have-been-called-with 'some-package)
       (expect 'require :to-have-been-called-with 'some-package))))

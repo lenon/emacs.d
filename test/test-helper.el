@@ -20,6 +20,3 @@
     (set var temp-value)
     (buttercup--add-cleanup (lambda ()
                               (set var orig-var)))))
-
-(buttercup-define-matcher :to-not-have-been-called (spy)
-  (= 0 (spy-calls-count spy)))
