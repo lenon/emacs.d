@@ -23,6 +23,8 @@
 
 ;;; Theme
 
+(setq monokai-highlight "#463D53")
+(setq monokai-comments "#9E9B8E")
 (load-theme 'monokai 'trust)
 
 ;;; General settings
