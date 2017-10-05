@@ -10,6 +10,9 @@
 (require 'package)
 (require 'package-utils)
 
+;; Initialize the package manager. I'm not activating all packages here because
+;; they will be activated manually later by use-package calls.
+;; This ensures that only explicitly required packages will be used.
 (package-initialize 'no-activate)
 
 (package-utils/add-repo "melpa" "https://melpa.org/packages/")
