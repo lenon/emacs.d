@@ -13,6 +13,18 @@
             '(("repo-a" . "https://repo-a.com")
               ("repo-b" . "https://repo-b.com")))))
 
+(describe "package-utils/remove-repo"
+  (before-each
+    (redef 'package-archives '(("repo-a" . "https://repo-a.com")
+                               ("repo-b" . "https://repo-b.com"))))
+
+  (it "removes a repo from the package-archives list"
+    (package-utils/remove-repo "repo-a")
+
+    (expect package-archives
+            :to-equal
+            '(("repo-b" . "https://repo-b.com")))))
+
 (describe "package-utils/refresh-repos-once"
   (before-each
     (spy-on 'package-refresh-contents))

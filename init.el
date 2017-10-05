@@ -15,6 +15,8 @@
 ;; This ensures that only explicitly required packages will be used.
 (package-initialize 'no-activate)
 
+(package-utils/remove-repo "gnu") ; forcing GNU ELPA to use HTTPS
+(package-utils/add-repo "gnu" "https://elpa.gnu.org/packages/")
 (package-utils/add-repo "melpa" "https://melpa.org/packages/")
 
 (package-utils/use-package 'monokai-theme)
