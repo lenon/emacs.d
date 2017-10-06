@@ -13,10 +13,8 @@
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
 
-;; Disable the error buffer because it is presented on a new frame
-;; when neotree is open
-;; TODO: investigate this behavior
-(setq cider-show-error-buffer nil)
+;; Show error buffer except when in REPL
+(setq cider-show-error-buffer 'except-in-repl)
 
 ;; Display results on the echo area
 (setq cider-use-overlays nil)
