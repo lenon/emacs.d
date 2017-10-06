@@ -40,11 +40,10 @@
 
 ;; Disable scroll bars, the tool bar and the menu bar when they are available
 ;; (usually on GUI Emacs)
-(dolist (mode '(scroll-bar-mode
-                tool-bar-mode
-                menu-bar-mode))
-  (when (fboundp mode)
-    (funcall mode -1)))
+(when window-system
+  (scroll-bar-mode 0)
+  (tool-bar-mode 0)
+  (menu-bar-mode 0))
 
 ;; Turn off the annoying audible and visible bell on errors...
 (setq visible-bell nil)
