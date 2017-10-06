@@ -19,8 +19,10 @@
 ;; Display results using overlays
 (setq cider-use-overlays t)
 
-;; Do not truncate lines on repl
-(with-eval-after-load 'cider-repl-mode-hook
+(defun emacsd/cider-repl-mode-hook ()
   (setq truncate-lines nil))
+
+;; Do not truncate lines on repl
+(add-hook 'cider-repl-mode-hook 'emacsd/cider-repl-mode-hook)
 
 (provide 'init-clojure)
