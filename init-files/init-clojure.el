@@ -16,8 +16,8 @@
 ;; Show error buffer except when in REPL
 (setq cider-show-error-buffer 'except-in-repl)
 
-;; Display results on the echo area
-(setq cider-use-overlays nil)
+;; Display results using overlays
+(setq cider-use-overlays t)
 
 ;; Do not truncate lines on repl
 (with-eval-after-load 'cider-repl-mode-hook
