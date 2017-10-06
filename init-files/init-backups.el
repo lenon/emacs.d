@@ -14,10 +14,6 @@
   (expand-file-name ".auto-save-list-" emacsd/auto-save-dir)
   "Prefix used for auto-save lists.")
 
-;; Ensure that backups and auto-save dirs exist
-(mkdir emacsd/backups-dir t)
-(mkdir emacsd/auto-save-dir t)
-
 ;; Save all backups into the same directory and prevent Emacs from
 ;; creating ~* files everywhere.
 (setq backup-directory-alist `(("." . ,emacsd/backups-dir)))
